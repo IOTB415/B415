@@ -11,9 +11,12 @@
         </a>
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="float: right;" [nzInlineCollapsed]='false' class="top-menu">
-        <li nz-menu-item>nav 1</li>
-        <li nz-menu-item>nav 2</li>
-        <li nz-menu-item>nav 3</li>
+        <li nz-menu-item>NEWS</li>
+        <li nz-menu-item>
+          <a href="https://github.com/iotb415" target="_blank">
+            <i nz-icon type="github" style="font-size: 20px"></i>
+          </a>
+        </li>
       </ul>
     </nav>
     <div class="wrapper">
@@ -32,46 +35,41 @@
           </div>
         </div>
       </section>
-      <section class="colored-section hero-section1">
-        <div>
-          <div style="padding:30px;">
-            <div nz-row [nzGutter]="8">
-              <div nz-col [nzSpan]="8">
-                <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-                </nz-card>
-                <ng-template #coverTemplate>
-                  <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                </ng-template>
+      <section class="colored-section study-section">
+          <div class="study-head">
+            <h1>study</h1>
+            <h2>看你所看，想你所想</h2>
+          </div>
+          <div class="study-autoplay">
+            <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000">
+              <div nz-carousel-content *ngFor="let index of array">
+                <h3>{{ index }}</h3>
               </div>
-              <div nz-col [nzSpan]="8">
-                <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-                </nz-card>
-                <ng-template #coverTemplate>
-                  <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                </ng-template>
+            </nz-carousel>
+          </div>
+      </section>
+      <section class="colored-section users-section">
+        <div class="study-head">
+          <h1>team</h1>
+          <h2>大佬所向，寸草不生</h2>
+        </div>
+          <div nz-row class="team">
+            <div nz-col nzXs="0" nzSm="0" nzMd="0" nzLg="1" nzXl="2">              
+            </div>
+            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="22" nzXl="20">
+              <div nz-row [nzGutter]="16">
+                <div nz-col nzXs="12" nzSm="8" nzMd="8" nzLg="8" nzXl="8" 
+                *ngFor="let item of users" style="padding: 10px;">
+                  <nz-card [nzHoverable]="true" [nzCover]="coverTemplate" (click)="gouser(item.url)" class="nzcard">
+                    <nz-card-meta nzTitle={{item.name}} nzDescription={{item.description}}></nz-card-meta>
+                  </nz-card>
+                  <ng-template #coverTemplate>
+                    <img alt="example" src={{item.imgurl}} />
+                  </ng-template>
+                </div>           
               </div>
-              <div nz-col [nzSpan]="8">
-                <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-                </nz-card>
-                <ng-template #coverTemplate>
-                  <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                </ng-template>
-              </div>
-               <div nz-col [nzSpan]="8">
-                 <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-                   <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-                 </nz-card>
-                 <ng-template #coverTemplate>
-                   <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                 </ng-template>
-               </div>
             </div>
           </div>
-           
-        </div>
       </section>
     </div>
     <nz-back-top></nz-back-top>
