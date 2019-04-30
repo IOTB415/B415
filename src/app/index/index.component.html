@@ -4,14 +4,16 @@
   <nz-content style="background-color: transparent;">
     <nav class="fixed-top"
       [ngClass]="{'navbar-transparent': istop, 'sticky-navigation-alt': istop, 'bg-primary': !istop,'navbar-top':!istop}">
-      <div style="float:left;">
+      <div style="float:left;font-size: 25px;">
         <a [routerLink]="['/']" class="alain-default__header-logo-link">
-          <img class="" src="../../assets/img/logo.png" 
-            style="max-height:40px;" />
+          <img class="" src="../../assets/logo.png" 
+            style="max-height:35px;" />
         </a>
+        B415
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="float: right;" [nzInlineCollapsed]='false' class="top-menu">
-        <li nz-menu-item>NEWS</li>
+        <!-- <li nz-menu-item>study</li> -->
+        <!-- <li nz-menu-item>team</li> -->
         <li nz-menu-item>
           <a href="https://github.com/iotb415" target="_blank">
             <i nz-icon type="github" style="font-size: 20px"></i>
@@ -26,24 +28,29 @@
           <div class="row">
             <div class="col-md-8 offset-md-2">
               <div class="brand">
-                <h1 class="text-white">Wired UI Kit</h1>
+                <h1 class="text-white">IOT B415</h1>
                 <h5 class="text-uppercase mb-5">
-                  A FREE UI Kit based on Bootstrap 4 Alpha 6
+                  Waiting for you!
                 </h5>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="colored-section study-section">
+      <section  class="colored-section study-section">
           <div class="study-head">
             <h1>study</h1>
             <h2>看你所看，想你所想</h2>
           </div>
           <div class="study-autoplay">
             <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000">
-              <div nz-carousel-content *ngFor="let index of array">
-                <h3>{{ index }}</h3>
+              <div nz-carousel-content class="nz-carousel-content" *ngFor="let item of studies"
+                (click)="gostudy(item.id)">
+                  <div>
+                    <h3>{{ item.name }}</h3>
+                    <h4>{{item.description}}</h4>
+                    <button *ngIf="!windowPC" (click)="gostudy(item.id)">详情</button>
+                  </div>                  
               </div>
             </nz-carousel>
           </div>
@@ -60,7 +67,7 @@
               <div nz-row [nzGutter]="16">
                 <div nz-col nzXs="12" nzSm="8" nzMd="8" nzLg="8" nzXl="8" 
                 *ngFor="let item of users" style="padding: 10px;">
-                  <nz-card [nzHoverable]="true" [nzCover]="coverTemplate" (click)="gouser(item.url)" class="nzcard">
+                  <nz-card [nzHoverable]="true" [nzCover]="coverTemplate" (click)="gouser(item.id)" class="nzcard">
                     <nz-card-meta nzTitle={{item.name}} nzDescription={{item.description}}></nz-card-meta>
                   </nz-card>
                   <ng-template #coverTemplate>
@@ -74,5 +81,13 @@
     </div>
     <nz-back-top></nz-back-top>
   </nz-content>
-  <nz-footer>Footer</nz-footer>
+  <nz-footer>
+    <div class="footer">
+      Copyright
+      <i class="anticon anticon-copyright"></i>
+      {{year}} IOTB415
+      <br>
+      Email: IOTB415@outlook.com
+    </div>
+  </nz-footer>
 </nz-layout>

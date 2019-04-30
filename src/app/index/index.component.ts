@@ -7,24 +7,28 @@ import { distinctUntilChanged, throttleTime } from 'rxjs/operators';
 
 import { HttpClient} from '@angular/common/http';
 
-import { user } from './interface';
+import { user, study } from './interface';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.less']
+  selector: "app-index",
+  templateUrl: "./index.component.html",
+  styleUrls: ["./index.component.less"]
 })
 export class IndexComponent implements OnInit {
+  today = new Date();
+  year = this.today.getFullYear();
   private scroll$: Subscription | null = null;
   private target: HTMLElement | null = null;
   istop = false;
   users: user[];
-  studies;
-  array = ['行人重识别', '行为识别', '目标跟踪'];
+  studies: study[];
+  windowPC = true;
   constructor(
     private scrollSrv: NzScrollService,
     private platform: Platform,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,6 +37,9 @@ export class IndexComponent implements OnInit {
     }
     this.getstudy();
     this.getusers();
+    if (document.body.clientWidth < 992) {
+      this.windowPC = false;
+    }
   }
   private getTarget(): HTMLElement | Window {
     return this.target || window;
@@ -57,7 +64,7 @@ export class IndexComponent implements OnInit {
     }
     this.removeListen();
     this.handleScroll();
-    this.scroll$ = fromEvent(this.getTarget(), 'scroll')
+    this.scroll$ = fromEvent(this.getTarget(), "scroll")
       .pipe(
         throttleTime(50),
         distinctUntilChanged()
@@ -66,20 +73,25 @@ export class IndexComponent implements OnInit {
   }
 
   getstudy() {
-    this.http.get('assets/db/study.json').subscribe((res: any) => {
+    this.http.get("assets/db/study.json").subscribe((res: any) => {
       this.studies = res.data;
     });
   }
 
   getusers() {
-    this.http.get('assets/db/team.json').subscribe((res: any) => {
+    this.http.get("assets/db/team.json").subscribe((res: any) => {
       this.users = res.data;
     });
   }
 
-  gouser(userurl) {
-    if (userurl) {
-      window.open(userurl, '_blank');
+  gostudy(id) {
+    const url = "/study/" + id;
+    this.router.navigateByUrl(url);
+  }
+  gouser(id) {
+    if (id) {
+      const url = "/team/" + id;
+      this.router.navigateByUrl(url);
     }
   }
 }

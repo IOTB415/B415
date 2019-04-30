@@ -3,34 +3,29 @@
     "data":[
         {
             "name":"A",
-            "id":"A",
+            "id":"md",
             "imgurl": "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-            "description":"AAAAAAAAA",
-            "url":"http://www.gistime.cn"
+            "description":"AAAAAAAAA"
         }, {
           "name": "B",
           "id": "B",
           "imgurl": "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-          "description": "AAAAAAAAA",
-          "url": "http://www.gistime.cn"
+          "description": "AAAAAAAAA"
         }, {
           "name": "A",
           "id": "A",
           "imgurl": "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-          "description": "AAAAAAAAA",
-          "url": "http://www.gistime.cn"
+          "description": "AAAAAAAAA"
         }, {
           "name": "A",
           "id": "A",
           "imgurl": "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-          "description": "AAAAAAAAA",
-          "url": "http://www.gistime.cn"
+          "description": "AAAAAAAAA"
         }, {
           "name": "A",
           "id": "A",
           "imgurl": "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-          "description": "AAAAAAAAA",
-          "url": "http://www.gistime.cn"
+          "description": "AAAAAAAAA"
         }
     ]
     

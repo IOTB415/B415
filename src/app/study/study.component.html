@@ -1,0 +1,15 @@
+<div *ngIf="mdurl">
+  <section class="study-header">
+    study
+  </section>
+  <section class="study-content">
+    <div nz-row>
+      <div nz-col nzXs="0" nzSm="0" nzMd="0" nzLg="1" nzXl="2">
+      </div>
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="22" nzXl="20">
+        <div class="markdown" markdown [src]="mdurl">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
